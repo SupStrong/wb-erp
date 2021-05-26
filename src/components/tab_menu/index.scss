@@ -1,0 +1,49 @@
+
+.index {
+    background: #f6f6f6;
+}
+.tab {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  z-index: 9;
+  .tab-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #6A6A6A;
+    position: relative;
+    &.active {
+      color: #2950F0;
+      font-size: 18px;
+      position: relative;
+      font-weight: bold;
+      &::after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 2px;
+        background: #2950F0;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .icon-text{
+      font-size: 12px;
+      padding: 0 5px 0 5px;
+      background: #d00e0c;
+      border-radius: 50%;    
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: white; 
+      line-height: 17px; 
+    }
+  }
+}

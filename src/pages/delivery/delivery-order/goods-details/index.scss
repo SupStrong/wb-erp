@@ -1,0 +1,98 @@
+.index {
+  background: #f6f6f6;
+}
+
+.goods-details {
+  margin-top: 10px;
+  background-color: #fff;
+  display: flex;
+  padding: 15px;
+
+  .goods-img {
+    width: 90px;
+    height: 90px;
+    opacity: 1;
+    background: #ffffff;
+    border: 1px solid #f5f6f9;
+    border-radius: 3px;
+    padding: 8px 8px;
+  }
+
+  .goods-info {
+    margin-left: 10px;
+
+    .goods-code,
+    .goods-spec {
+      display: flex;
+    }
+
+    .title {
+      width: 72px;
+      font-size: 14px;
+    }
+
+    .text {
+      width: 173px;
+    }
+
+    .spec {
+      word-break: break-all;
+    }
+  }
+}
+
+.delivery-number {
+  width: 100%;
+  height: 60px;
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 19px 15px;
+}
+
+.serial-list {
+  width: 375px;
+  height: 190px;
+  background-color: #fff;
+
+  .scroll-serial {
+    width: 345px;
+    height: 175px;
+    margin: 0 auto;
+    background-color: #f5f6f9;
+    padding: 15px 5px 15px 15px;
+
+    .title {
+      color: #2950F0;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .scroll-main {
+      width: 100%;
+      height: 130px;
+      overflow: scroll;
+    }
+
+    .scroll-main-list {
+      margin-top: 10px;
+      color: #111;
+      font-size: 14px;
+    }
+  }
+}
+
+.goods-remarks {
+  display: flex;
+  background-color: #fff;
+  padding: 19px 15px;
+  margin-top: 10px;
+
+  .goods-remarks-title {
+    width: 98px;
+  }
+
+  .goods-remarks-text {
+    width: 237px;
+    word-wrap:break-word;
+  }
+}

@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+.G-show-slowly{
+    animation: slowly-animation 150ms linear;
+  }
+  @keyframes slowly-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  .G-isloading{
+    animation: skeleton-blink 1.2s ease-in-out infinite;
+  }
+  @keyframes skeleton-blink {
+    50% {
+      opacity: .6;
+    }
+  }
+  
+  .G-loading-item {
+    border-radius: 4px;
+    color: #f2f3f5 !important;
+    background-color: #f2f3f5 !important;
+  }

@@ -1,0 +1,92 @@
+
+.order-list-main {
+    background: #fff;
+    margin-top: 100px;
+}
+.order-list {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 0;
+  margin-top: 10px;
+  .order-list-item {
+    display: -webkit-flex;
+    margin-top: 16px;
+    align-items: center;
+    padding: 0 15px;
+    min-height: 16px;
+  }
+
+  .order-list-item:first-child {
+    margin-top: 0;
+  }
+  .order-list-title {
+    width: 80px;
+    font-size: 16px;
+    margin-right: 10px;
+    color: #7f7f7f;
+  }
+  .order-list-info {
+    color: #111;
+    font-size: 16px;
+  }
+  .order-status {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 26px;
+    &.G-color-e00e0c{
+     color: #e00e0c;
+    }
+    &.G-color-2EB872{
+     color: #2EB872; 
+    }
+    &.G-color-7F7F7F{
+      color: #7F7F7F;
+    }
+  }
+  .bill-number{
+    width: 181px;
+  }
+  .reserva-status{
+    margin-left: 26px;
+  }
+
+  .order-warehouse,.order-date{
+    max-width: 255px;
+  }
+  .customer-name{
+    max-width: 102px;
+    margin-left: 0;
+  }
+  .customer-address,.customer-info{
+    max-width: 209px;
+  }
+
+  .customer-mobile-icon,.customer-address-icon{
+    width: 36px;
+    height: 24px;
+    opacity: 1;
+    background: rgba(41,80,240,0.05);
+    border: 1px solid #2950f0;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2950f0;
+    font-size: 12px;
+  }
+}
+.order-list:first-child{
+  margin-top: 0;
+}
+.order-btn {
+  width: 345px;
+  height: 45px;
+  opacity: 1;
+  background: rgba(41,80,240,0.05);
+  border-radius: 2px;
+  color: #2950f0;
+  font-weight: 700;
+  margin: 20px auto 0 auto;
+}

@@ -1,0 +1,20 @@
+.G-verify-btn {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  .ver-code {
+    font-size: 14px;
+    color: #d00e0c;
+    line-height: 20px;
+  }
+
+  .code-num {}
+
+}

@@ -1,0 +1,123 @@
+.index {
+  background: #f6f6f6;
+  padding-bottom: 65px;
+  &.ipx {
+    padding-bottom: 98px;
+  }
+}
+
+.serial-scan {
+  width: 100%;
+  background-color: #fff;
+  height: 182px;
+  padding: 0 15px;
+
+  .title {
+    height: 47px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scan-icon {
+    color: #2950f0;
+  }
+
+  .input-text {
+    height: 60px;
+    border: 1px solid #f5f6f9;
+    margin: 0 auto;
+    padding-left: 15px;
+    color: #7f7f7f;
+  }
+
+  .btn {
+    height: 45px;
+    background: #f5f5f5;
+    border-radius: 2px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 45px;
+    color: #A3A3A3;
+    margin-top: 15px;
+  }
+  .isdefine{
+    background-color: #2950f0;
+    color: white;
+  }
+}
+
+.serial-list {
+  width: 100%;
+  background-color: #fff;
+
+  .title {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 0 15px;
+
+    .iconxuliehaoliebiao {
+      width: 22px;
+      height: 22px;
+      opacity: 1;
+      background: #2950f0;
+      border-radius: 50%;
+      font-size: 10px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .serial-number {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .iconshanchu {
+    width: 22px;
+    height: 22px;
+    opacity: 1;
+    border: 1px solid #d00e0c;
+    border-radius: 50%;
+    font-size: 10px;
+    color: #d00e0c;
+  }
+}
+
+.footer-btn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+
+  .number {
+    color: #D00E0C;
+  }
+
+  .btn-submit {
+    width: 180px;
+    height: 45px;
+    background: #2950f0;
+    border-radius: 2px;
+    text-align: center;
+    color: white;
+    line-height: 45px;
+  }
+  &.ipx {
+    height: 88px;
+    padding-bottom: 38px;
+  }
+}
