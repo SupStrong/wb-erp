@@ -1,9 +1,17 @@
 export default {
   pages: [
-    'pages/login/index',
-    'pages/work-platform/index',
-    "pages/tabs/user/index",
-    "pages/tabs/console/index",
+    'pages/address/alls/index',
+    'pages/address/news/index',
+    'pages/goods/lists/index',
+    'pages/goods/details/index',
+    'pages/goods/confirm/index',
+    'pages/order/lists/index',
+    'pages/order/details/index',
+    'pages/order/success/index',
+    'pages/shop-cart/index',
+    'pages/user/login/index',
+    'pages/user/edit/index',
+    'pages/my/login/index'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -22,39 +30,22 @@ export default {
     "selectedColor": "#222222",
     "borderStyle": "white",
     "list": [{
-        "text": "工作台",
-        "pagePath": "pages/tabs/console/index",
+        "text": "产品库",
+        "pagePath": "pages/goods/lists/index",
+        "iconPath": "./assets/images/tabbar/bar01.png",
+        "selectedIconPath": "./assets/images/tabbar/bar1.png"
+      },{
+        "text": "购物车",
+        "pagePath": "pages/shop-cart/index",
         "iconPath": "./assets/images/tabbar/bar01.png",
         "selectedIconPath": "./assets/images/tabbar/bar1.png"
       },
       {
-        "text": "我的",
-        "pagePath": "pages/tabs/user/index",
+        "text": "个人中心",
+        "pagePath": "pages/my/login/index",
         "iconPath": "./assets/images/tabbar/bar02.png",
         "selectedIconPath": "./assets/images/tabbar/bar2.png"
       }
     ],
-  },
-  subPackages: [
-    {
-      "root": "pages/user",
-      "name": "user",
-      "pages": [
-        'bind-mobile/index',
-        'edit-password/index',
-        'select-merchant/index'
-      ]
-     },
-     {
-      "root": "pages/delivery",
-      "name": "delivery",
-      "pages": [
-        'delivery-order/show-delivery/index',
-        'delivery-order/lists/index',
-        'delivery-order/goods-details/index',
-        'delivery-order/select-goods/index',
-        'delivery-order/serial-lists/index'
-      ]
-     }
-  ]
+  }
 }
