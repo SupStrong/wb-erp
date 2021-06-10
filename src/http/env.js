@@ -4,10 +4,10 @@ switch (process.env.TARO_ENV) {
     appid = 'ttd10ca7b14e371b06' //tt
     break;
   case 'weapp':
-    appid = 'wx15f18d98acb429b8'
+    appid = 'wxe2a0a10b4ebcc409'
     break;
   default:
-    appid = 'wx15f18d98acb429b8'
+    appid = 'wxe2a0a10b4ebcc409'
 }
 const config = {
   local: {
