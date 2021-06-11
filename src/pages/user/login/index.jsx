@@ -1,7 +1,7 @@
 import Taro from "@tarojs/taro";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { View } from "@tarojs/components";
+import { View,Input,Image,Text } from "@tarojs/components";
 import { API_AUTH_LOGIN, API_AUTH_UNIONID, API_AUTH_WXUSER } from "@/http/api/AUTH";
 import {
   showPopup,
@@ -18,10 +18,7 @@ import { CommonBtn } from "@/components/common-btn";
 
 import "./index.scss";
 
-const LoginTypeConfig = {
-  1: "密码登录",
-  2: "验证码登录",
-};
+import logoImg from "@/assets/images/login/logo.png";
 
 function mapStateToProps(state) {
   return {
@@ -111,79 +108,45 @@ class Index extends Component {
   }
   render() {
     let { submitData, code } = this.state;
-    let login_status;
-    if (submitData.type == 1) {
-      login_status = submitData.mobile != "" && submitData.password != "";
-    } else {
-      login_status = submitData.mobile != "" && submitData.wxcode != "";
-    }
 
-    let titleEl = (
-      <>
-        <View className='page-title'>欢迎使用，请登录</View>
-        <View className='login-text'>
-          可帮助店员快速处理订单、客户管理、查看数据等，实现移动化办公需求
-        </View>
-      </>
-    );
     return (
-      <View className='p15 show-page'>
-        <View className='page-bg'></View>
-        <View className='bd'>
-          {titleEl}
-          <LoginInput
-            iconName='iconshouji'
-            placeholderText='请输入手机号'
-            keywords='mobile'
-            inputValue={submitData.mobile}
-            handleChange={this.handleChange.bind(this)}
-          />
-          <View className='password-con'>
-            <LoginInput
-              iconName='iconmima'
-              placeholderText='请输入密码'
-              keywords='password'
-              type='password'
-              inputValue={submitData.password}
-              handleChange={this.handleChange.bind(this)}
-              externalClass={`password ${
-                submitData.type == 1 ? "transform-el" : ""
-              }`}
-            />
-            <LoginInput
-              iconName='iconmima'
-              placeholderText='请输入验证码'
-              keywords='password'
-              type='number'
-              inputValue={submitData.password}
-              handleChange={this.handleChange.bind(this)}
-              externalClass={`code ${
-                submitData.type == 1 ? "transform-el" : ""
-              }`}
-            >
-              <VerifyBtn source='1' mobile={submitData.mobile}></VerifyBtn>
-            </LoginInput>
+      <View className='content'>
+        <View className='title-tips'>
+          <Image className='logo' src={logoImg} />
+          <View className='G-color-333 G-Fsize-20 G-Mt-15 G-bold'>欢迎使用，请登录</View>
+          <View className='G-color-999 G-Fsize-14 G-Mt-10 details'>
+          为品牌连锁餐饮企业提供专业供应链服务，通过软件可查看商品库存、订单等信息，实现移动化办公管理
           </View>
-          <View className='login-type'>
-            <View
-              className='password-login G-Fsize-16'
-              onClick={this.setLoginType.bind(this)}
-            >
-              {submitData.type == 1 ? LoginTypeConfig[2] : LoginTypeConfig[1]}
+          <View className='ipt-val'>
+            <View className='ipt-val-list'>
+              <View className='G-color-333 G-Fsize-16'>账号
+              <Text className='G-Ml-5 G-Mr-10'>|</Text>
+              </View>
+              <Input
+                type='text'
+                value='' 
+                className='search-ipt G-color-999 G-Fsize-16 G-Ml-5'
+                disabled
+                placeholder='请输入手机号'
+                placeholderClass='ipt-class'
+              />
+            </View>
+            <View className='ipt-val-list G-Mt-15'>
+              <View className='G-color-333 G-Fsize-16'>密码
+              <Text className='G-Ml-5 G-Mr-10'>|</Text>
+              </View>
+              <Input
+                type='text'
+                value=''
+                className='search-ipt G-color-999 G-Fsize-16 G-Ml-5'
+                disabled
+                placeholder='请输入密码'
+                placeholderClass='ipt-class'
+              />
             </View>
           </View>
-          <CommonBtn
-            btnText='登录'
-            externalClass={login_status == true ? "" : "disabled"}
-            status={login_status}
-            handleClick={this.getToken.bind(this)}
-          />
-        </View>
-
-        <View className='wechat' onClick={this.wxLoginClick.bind(this)}>
-          <View className='text'>快捷登录</View>
-          <View className='icon'>
-            <View className='iconfont iconweixin'></View>
+          <View className='ipt-submit active'>
+            <View className='G-Fsize-1 6 G-color-white'>登录</View>
           </View>
         </View>
       </View>

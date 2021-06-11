@@ -1,7 +1,7 @@
 import Taro from "@tarojs/taro";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { View } from "@tarojs/components";
+import { View,Image,Text,Button } from "@tarojs/components";
 import { API_AUTH_LOGIN, API_AUTH_UNIONID, API_AUTH_WXUSER } from "@/http/api/AUTH";
 import {
   showPopup,
@@ -17,6 +17,12 @@ import { VerifyBtn } from "@/components/verify-btn";
 import { CommonBtn } from "@/components/common-btn";
 
 import "./index.scss";
+
+import emptyImg from "@/assets/images/order/empty-order.png";
+import checkImg from "@/assets/images/order/select.png";
+import noCheckImg from "@/assets/images/order/no-select.png";
+import addImg from "@/assets/images/order/add.png";
+import reduceImg from "@/assets/images/order/reduce.png";
 
 const LoginTypeConfig = {
   1: "密码登录",
@@ -50,142 +56,62 @@ class Index extends Component {
   componentWillUnmount() {}
 
   componentDidShow() {}
-  handleChange({ value, keywords }) {
-    let { submitData } = this.state;
-    submitData[keywords] = value;
-    this.setState({ submitData });
-  }
-  setLoginType() {
-    let { submitData } = this.state;
-    let type = submitData.type == 2 ? 1 : 2;
-    Object.assign(submitData, {
-      type,
-      password: "",
-    });
-    this.setState({ submitData });
-  }
-  async getToken() {
-    //获取token
-    let { status, message, data } = await API_AUTH_LOGIN(this.state.submitData);
-    showPopup(message);
-    if (!status) {
-      return false;
-    }
-    initToken(data.token);
-    Taro.navigateTo({
-      url: `/pages/user/select-merchant/index`,
-    });
-  }
-  async wxLoginClick() {
-    let { token, unionid, openid } = this.state.codeUserInfo;
-    console.log(token,'token',unionid,'unionid',openid,"openid");
-    if (token) {
-      Taro.navigateTo({
-        url: `/pages/user/select-merchant/index`,
-      });
-      return;
-    }
-    let { data } = await getUserProfile();
-    await saveWxUser(data);
-    Taro.navigateTo({
-      url: `/pages/user/bind-mobile/index?openid=${openid}&unionid=${unionid}`,
-    });
-  }
-  async codeGetInfo() {
-    let code = await wxLogin();
-    let {status,message,data:codeUserInfo} = await API_AUTH_UNIONID({code})
-    if(!status){
-      showPopup(message)
-      return
-    }
-    this.setState({codeUserInfo})
-    Taro.setStorageSync("codeUserInfo", codeUserInfo);
-    if (codeUserInfo.token) {
-      initToken(codeUserInfo.token);
-    }
-    if (this.props.userInfo.staff_id) {
-      Taro.switchTab({
-        url: "/pages/tabs/console/index",
-      });
-    }
-  }
+
+
   render() {
     let { submitData, code } = this.state;
-    let login_status;
-    if (submitData.type == 1) {
-      login_status = submitData.mobile != "" && submitData.password != "";
-    } else {
-      login_status = submitData.mobile != "" && submitData.wxcode != "";
-    }
-
-    let titleEl = (
-      <>
-        <View className='page-title'>欢迎使用，请登录</View>
-        <View className='login-text'>
-          可帮助店员快速处理订单、客户管理、查看数据等，实现移动化办公需求
-        </View>
-      </>
-    );
     return (
-      <View className='p15 show-page'>
-        <View className='page-bg'></View>
-        <View className='bd'>
-          {titleEl}
-          <LoginInput
-            iconName='iconshouji'
-            placeholderText='请输入手机号'
-            keywords='mobile'
-            inputValue={submitData.mobile}
-            handleChange={this.handleChange.bind(this)}
-          />
-          <View className='password-con'>
-            <LoginInput
-              iconName='iconmima'
-              placeholderText='请输入密码'
-              keywords='password'
-              type='password'
-              inputValue={submitData.password}
-              handleChange={this.handleChange.bind(this)}
-              externalClass={`password ${
-                submitData.type == 1 ? "transform-el" : ""
-              }`}
-            />
-            <LoginInput
-              iconName='iconmima'
-              placeholderText='请输入验证码'
-              keywords='password'
-              type='number'
-              inputValue={submitData.password}
-              handleChange={this.handleChange.bind(this)}
-              externalClass={`code ${
-                submitData.type == 1 ? "transform-el" : ""
-              }`}
-            >
-              <VerifyBtn source='1' mobile={submitData.mobile}></VerifyBtn>
-            </LoginInput>
-          </View>
-          <View className='login-type'>
-            <View
-              className='password-login G-Fsize-16'
-              onClick={this.setLoginType.bind(this)}
-            >
-              {submitData.type == 1 ? LoginTypeConfig[2] : LoginTypeConfig[1]}
+      <View className='content'>
+          {/* <View className='empty'>
+            <Image className='empty-img' src={emptyImg} />
+            <View className='empty-tips G-Mt-15 G-Fsize-14'>您的订单中心还没有商品</View>
+            <View className='go-details G-Fsize-13 G-color-white'>去看看</View>
+          </View> */}
+          <View className='order'>
+            <View className='order-list'>
+              <View className='list-l'>
+                <Image class='select-img' src={checkImg} />
+              </View>
+              <View className='list-r'>
+                  <Image class='order-img' src='https://img2.baidu.com/it/u=2471826223,1654648024&fm=26&fmt=auto&gp=0.jpg' />
+                  <View className='G-Ml-10'>
+                    <View className='title G-color-333 G-Fsize-15'>小满卤小满麻椒鸡胗卤</View>
+                    <View className='unit G-color-666 G-Fsize-14 G-Mt-10'>500g/份</View>
+                  </View>
+                  <View className='edit-num'>
+                    <Image className='reduce-img' src={reduceImg} />
+                    <Text className='G-Fsize-14 current-num G-color-333'>1</Text>
+                    <Image className='add-img' src={addImg} />
+                  </View>
+              </View>
+            </View>
+            <View className='order-list'>
+              <View className='list-l'>
+                <Image class='select-img' src={noCheckImg} />
+              </View>
+              <View className='list-r'>
+                  <Image class='order-img' src='https://img2.baidu.com/it/u=2471826223,1654648024&fm=26&fmt=auto&gp=0.jpg' />
+                  <View className='G-Ml-10'>
+                    <View className='title G-color-333 G-Fsize-15'>小满卤小满麻椒鸡胗卤小满卤小满麻椒鸡胗卤</View>
+                    <View className='unit G-color-666 G-Fsize-14 G-Mt-10'>500g/份</View>
+                  </View>
+                  <View className='edit-num'>
+                    <Image className='reduce-img' src={reduceImg} />
+                    <Text className='G-Fsize-14 current-num G-color-333'>99</Text>
+                    <Image className='add-img' src={addImg} />
+                  </View>
+              </View>
             </View>
           </View>
-          <CommonBtn
-            btnText='登录'
-            externalClass={login_status == true ? "" : "disabled"}
-            status={login_status}
-            handleClick={this.getToken.bind(this)}
-          />
-        </View>
-
-        <View className='wechat' onClick={this.wxLoginClick.bind(this)}>
-          <View className='text'>快捷登录</View>
-          <View className='icon'>
-            <View className='iconfont iconweixin'></View>
+          <View className='submit'>
+            <View className='submit-l'>
+              <Image src={noCheckImg} />
+              <Text className='G-color-666 G-Fsize-13 G-Ml-5'>全选</Text>
+            </View>
+            <View className='submit-r'>
+                <View className='G-color-white G-Fsize-14'>去下单(233)</View>
+            </View>
           </View>
-        </View>
       </View>
     );
   }

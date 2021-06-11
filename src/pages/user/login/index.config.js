@@ -1,6 +1,6 @@
 export default {
   navigationBarTitleText: "供应链",
-  navigationBarBackgroundColor:'#2950f0',
+  navigationBarBackgroundColor:'#FFFFFF',
   navigationBarTextStyle:'black',
   enablePullDownRefresh: true,
   

@@ -1,7 +1,7 @@
 export default {
-  navigationBarTitleText: "购物车",
-  navigationBarBackgroundColor:'#2950f0',
-  navigationBarTextStyle:'black',
+  navigationBarTitleText: "订单中心",
+  navigationBarBackgroundColor:'#037BD1',
+  navigationBarTextStyle:'white',
   enablePullDownRefresh: true,
   
 }

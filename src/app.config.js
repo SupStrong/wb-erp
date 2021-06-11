@@ -42,7 +42,7 @@ export default {
         "iconPath": "./assets/images/tabbar/bar02.png",
         "selectedIconPath": "./assets/images/tabbar/bar2.png"
       },{
-        "text": "购物车",
+        "text": "订单中心",
         "pagePath": "pages/shop-cart/index",
         "iconPath": "./assets/images/tabbar/bar03.png",
         "selectedIconPath": "./assets/images/tabbar/bar3.png"

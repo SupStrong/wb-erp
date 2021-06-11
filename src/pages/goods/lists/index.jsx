@@ -127,7 +127,8 @@ class Index extends Component {
           />
           <Image className='close-icon' src={closeImg} />
         </View>
-        <View className='goods'>
+        {/* 产品库  */}
+        {/* <View className='goods'>
           <View className='goods-list'>
               <Image className='goods-list-img' src='https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.qunarzz.com%2Ftravel%2Fd3%2F1704%2Fdb%2F34de73c353d44db5.jpg_480x360x95_a79b1843.jpg&refer=http%3A%2F%2Fimg1.qunarzz.com&app=2002&size=f9999,10000&q=a80&n=0&gz=0n&fmt=jpeg?sec=1625907557&t=b04b0e33778ea90a34632d500406c3c8' />
               <View className='goods-list-content G-Ml-10'>
@@ -140,8 +141,22 @@ class Index extends Component {
                 <Text className='G-color-FF7A0F G-Fsize-11 G-Ml-5'>123</Text>
               </View>
           </View>
-          
-        </View>
+        </View> */}
+        {/* 原材库 */}
+        {/* <View className='materials'>
+          <View className='materials-list'>
+            <View>
+              <View className='name G-color-333 G-Fsize-15'>卤小满麻椒鸡胗</View>
+              <View className='batch G-color-666 G-Fsize-13 G-Mt-10'>批次：2021-06-01</View>
+              <View className='unit G-color-666 G-Fsize-13 G-Mt-10'>厂号：1061       规格：10kg／箱</View>
+              <View className='tips G-Mt-10'>
+                <Image src={emptyImg} />
+                <Text className='G-color-999 G-Fsize-13 G-Ml-5'>用于xxx产品和xxx产品使用</Text>
+              </View>
+            </View>
+            <View className='G-Fsize-14 G-color-FF7A0F'>100箱</View>
+          </View>
+        </View> */}
         {/* <View className='empty'>
           <Image className='empty-img' src={emptyImg} />
           <View className='G-Fsize-14 G-color-999 G-Mt-15'>暂无数据</View>

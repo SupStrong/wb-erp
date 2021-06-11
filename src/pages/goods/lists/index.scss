@@ -71,3 +71,33 @@
     }
   }
 }
+.materials{
+  width: 345px;
+  background: #FFFFFF;
+  border-radius: 5px;
+  margin: 10px auto 0;
+  padding-top: 5px;
+  .materials-list{
+    margin-left: 15px;
+    padding: 15px 15px 15px 0;
+    border-bottom: 1px solid rgb(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .name,.batch,.unit,.tips{
+    line-height: 15px;
+  }
+  .tips{
+    image{
+      width: 12px;
+      height: 12px;
+    }
+    text{
+      line-height: 10px;
+    }
+  }
+  .materials-list:last-child{
+    border-bottom: 0;
+  }
+}
