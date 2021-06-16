@@ -8,6 +8,7 @@ export default {
     'pages/order/lists/index',
     'pages/order/details/index',
     'pages/order/success/index',
+    'pages/order/statistics/index',
     'pages/shop-cart/index',
     'pages/user/login/index',
     'pages/user/edit/index',
