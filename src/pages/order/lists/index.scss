@@ -1,102 +1,92 @@
-.page-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 520px;
-  width: 100%;
-  background: linear-gradient(360deg, rgba(83, 136, 249, 0.00), #2950f0);
-  z-index: -1;
+.content{
+    background: #F7F7F7;
 }
-
-.bd {
-  overflow: hidden;
-  padding: 40px 20px 25px;
-  margin:  40px auto 0;
-  width: 345px;
-  height: 450px;
-  background: #ffffff;
-  border-radius: 20px;
-
-  .password-con {
-    height: 54px;
-    position: relative;
-    margin-top: 30px;
-    overflow: hidden;
-    border-radius: 27px;
-  }
-  .login-type {
+.tab-list{
+    width: 100%;
+    height: 60px;
+    background: #F7F7F7;
+    padding: 10px 15px 0 10px;
     display: flex;
-    justify-content: flex-end;
-    padding-top: 20px;
-    margin-bottom: 30px;
-  }
-
-  .password-login {
-    font-size: 14px;
-    font-weight: 500;
-    color: #2950f0;
-    line-height: 20px;
-  }
-
-}
-
-
-.page-title {
-  font-size: 24px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: bold;
-  color: rgba(51, 51, 51, 1);
-  margin-top: 3px;
-  margin-bottom: 05px;
-  line-height: 28px;
-}
-
-.login-text {
-  margin-bottom: 40px;
-  font-size: 14px;
-  color: #999;
-  line-height: 20px;
-}
-
-.authorization {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 11;
-  padding: 2.02px 15px 0 15px;
-}
-
-.wechat {
-  position: absolute;
-  top: 520px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-top: 10px;
-  margin:  0 auto;
-  width: 55px;
-  display: flex;
-  flex-direction: column;
-  .text {
-    margin-top: 10px;
-    color: #999;
-    font-size: 12px;
-    text-align: center;
-  }
-
-  .icon {
-    margin-top: 20px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 46px;
-    border: 1px solid #00c41d;
-    .iconfont {
-      font-size: 23px;
-      color: #00C41D;
+    justify-content: space-between;
+    .icon{
+        width: 15px;
+        height: 15px;
+        background: #F7F7F7;
+        border: 1px solid #FF7A0F;
+        border-radius: 50%; 
+        display: block;
+        color: #FF7A0F;
+        float: right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.active{
+            border: 0;
+        }
     }
-  }
+    .name{
+        float: right;
+    }
 }
-
+.goods-list{
+    .main{
+        .time{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 35px;
+            padding: 0 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .goods{
+            .list{
+                width: 100%;
+                height: 95px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 15px;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                image{
+                    width: 75px;
+                    height: 75px;
+                }
+                .title,.unit{
+                    width: 200px;
+                }
+                .list-l{
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+        .btn{
+            height: 60px;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 10px;
+            .cancel{
+                width: 89px;
+                height: 33px;
+                background: #FFFFFF;
+                border: 1px solid #037BD1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 20px;
+                margin-right: 15px;
+            }
+            .show{
+                width: 89px;
+                height: 33px;
+                background: #037BD1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 15px;
+                border-radius: 20px;
+                
+            }
+        }
+    }
+}

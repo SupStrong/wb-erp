@@ -1,7 +1,7 @@
 import Taro from "@tarojs/taro";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { View } from "@tarojs/components";
+import { View,Input,Image,Text,Icon  } from "@tarojs/components";
 import { API_AUTH_LOGIN, API_AUTH_UNIONID, API_AUTH_WXUSER } from "@/http/api/AUTH";
 import {
   showPopup,
@@ -18,10 +18,7 @@ import { CommonBtn } from "@/components/common-btn";
 
 import "./index.scss";
 
-const LoginTypeConfig = {
-  1: "密码登录",
-  2: "验证码登录",
-};
+
 
 function mapStateToProps(state) {
   return {
@@ -111,81 +108,85 @@ class Index extends Component {
   }
   render() {
     let { submitData, code } = this.state;
-    let login_status;
-    if (submitData.type == 1) {
-      login_status = submitData.mobile != "" && submitData.password != "";
-    } else {
-      login_status = submitData.mobile != "" && submitData.wxcode != "";
-    }
-
-    let titleEl = (
-      <>
-        <View className='page-title'>欢迎使用，请登录</View>
-        <View className='login-text'>
-          可帮助店员快速处理订单、客户管理、查看数据等，实现移动化办公需求
-        </View>
-      </>
-    );
+    let data = [
+      { name:'全部',id:'',nums:''},
+      { name:'待确认',id:'',nums:'3'},
+      { name:'生产中',id:'',nums:'9'},
+      { name:'待配送',id:'',nums:'4'},
+      { name:'配送中',id:'',nums:'8'},
+      { name:'已完成',id:'',nums:''},
+      { name:'已失效',id:'',nums:''},
+    ]
+    // <View className=""></View>
+    // <Text></Text>
     return (
-      <View className='p15 show-page'>
-        <View className='page-bg'></View>
-        <View className='bd'>
-          {titleEl}
-          <LoginInput
-            iconName='iconshouji'
-            placeholderText='请输入手机号'
-            keywords='mobile'
-            inputValue={submitData.mobile}
-            handleChange={this.handleChange.bind(this)}
-          />
-          <View className='password-con'>
-            <LoginInput
-              iconName='iconmima'
-              placeholderText='请输入密码'
-              keywords='password'
-              type='password'
-              inputValue={submitData.password}
-              handleChange={this.handleChange.bind(this)}
-              externalClass={`password ${
-                submitData.type == 1 ? "transform-el" : ""
-              }`}
-            />
-            <LoginInput
-              iconName='iconmima'
-              placeholderText='请输入验证码'
-              keywords='password'
-              type='number'
-              inputValue={submitData.password}
-              handleChange={this.handleChange.bind(this)}
-              externalClass={`code ${
-                submitData.type == 1 ? "transform-el" : ""
-              }`}
-            >
-              <VerifyBtn source='1' mobile={submitData.mobile}></VerifyBtn>
-            </LoginInput>
-          </View>
-          <View className='login-type'>
-            <View
-              className='password-login G-Fsize-16'
-              onClick={this.setLoginType.bind(this)}
-            >
-              {submitData.type == 1 ? LoginTypeConfig[2] : LoginTypeConfig[1]}
+      <View className='content'>
+        <View className='tab-list'>
+          {data.map(item => (
+            <View className="list">
+              <View className={item.nums != '' ? 'icon G-Fsize-9' : 'icon G-Fsize-9 active'}>{item.nums}</View>
+              <Text className="G-Fsize-14 G-color-34 name G-Mt-5">{item.name}</Text> 
+            </View>
+          ))}
+          
+        </View>
+        <View className='goods-list'>
+          <View className="main G-Mb-5 G-bg-white">
+            <View className="time">
+              <View className="date G-Fsize-13">2020-06-01  13:35:35</View>
+              <View className="status G-Fsize-13 G-color-037BD1">待确认</View>
+            </View>
+            <View className="goods">
+              <View className="list G-Mb-5">
+                <View className="list-l">
+                  <Image className='' src="https://img0.baidu.com/it/u=1095903005,1370184727&fm=26&fmt=auto&gp=0.jpg" />
+                  <View className='info G-Ml-10'>
+                    <View className='title G-Fsize-15 G-color-333 G-one-cloum'>卤小满麻椒鸡胗卤小满麻椒鸡胗卤小满麻椒鸡胗</View>
+                    <View className='unit G-Fsize-13 G-color-666 G-Mt-10'>规格：2.5kg*6/箱</View>
+                  </View>
+                </View>
+                <View className='number G-Fsize-14 G-color-FF7A0F'>×100</View>
+              </View>
+              <View className="list">
+                <View className="list-l">
+                  <Image className='' src="https://img0.baidu.com/it/u=1095903005,1370184727&fm=26&fmt=auto&gp=0.jpg" />
+                  <View className='info G-Ml-10'>
+                    <View className='title G-Fsize-15 G-color-333 G-one-cloum'>卤小满麻椒鸡胗卤小满麻椒鸡胗卤小满麻椒鸡胗</View>
+                    <View className='unit G-Fsize-13 G-color-666 G-Mt-10'>规格：2.5kg*6/箱</View>
+                  </View>
+                </View>
+                <View className='number G-Fsize-14 G-color-FF7A0F'>×100</View>
+              </View>
+            </View>
+            <View className="btn">
+              <View className="cancel G-color-037BD1">取消订单</View>
+              <View className="show G-color-white">查看详情</View>
             </View>
           </View>
-          <CommonBtn
-            btnText='登录'
-            externalClass={login_status == true ? "" : "disabled"}
-            status={login_status}
-            handleClick={this.getToken.bind(this)}
-          />
-        </View>
-
-        <View className='wechat' onClick={this.wxLoginClick.bind(this)}>
-          <View className='text'>快捷登录</View>
-          <View className='icon'>
-            <View className='iconfont iconweixin'></View>
+          <View className="main G-bg-white">
+            <View className="time">
+              <View className="date G-Fsize-13">2020-06-01  13:35:35</View>
+              <View className="status G-Fsize-13 G-color-037BD1">待确认</View>
+            </View>
+            <View className="goods">
+              <View className="list">
+                <View className="list-l">
+                  <Image className='' src="https://img0.baidu.com/it/u=1095903005,1370184727&fm=26&fmt=auto&gp=0.jpg" />
+                  <View className='info G-Ml-10'>
+                    <View className='title G-Fsize-15 G-color-333 G-one-cloum'>卤小满麻椒鸡胗卤小满麻椒鸡胗卤小满麻椒鸡胗</View>
+                    <View className='unit G-Fsize-13 G-color-666 G-Mt-10'>规格：2.5kg*6/箱</View>
+                  </View>
+                </View>
+                <View className='number G-Fsize-14 G-color-FF7A0F'>×100</View>
+              </View>
+            </View>
+            <View className="btn">
+              <View className="cancel G-color-037BD1">取消订单</View>
+              <View className="show G-color-white">查看详情</View>
+            </View>
           </View>
         </View>
+        
       </View>
     );
   }
