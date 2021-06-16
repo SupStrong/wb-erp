@@ -1,7 +1,7 @@
 export default {
   navigationBarTitleText: "提交订单",
-  navigationBarBackgroundColor:'#2950f0',
-  navigationBarTextStyle:'black',
+  navigationBarBackgroundColor:'#037BD1',
+  navigationBarTextStyle:'white',
   enablePullDownRefresh: true,
   
 }

@@ -1,7 +1,7 @@
 export default {
-  navigationBarTitleText: "修改密码",
-  navigationBarBackgroundColor:'#2950f0',
-  navigationBarTextStyle:'black',
+  navigationBarTitleText: "我的地址",
+  navigationBarBackgroundColor:'#037BD1',
+  navigationBarTextStyle:'white',
   enablePullDownRefresh: true,
   
 }

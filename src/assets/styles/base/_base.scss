@@ -256,7 +256,7 @@ ad {
     display: inline-block
 }
 .G-hide {
-    display: none
+    display: none!important;
 }
 .G-authorization-con{
     position: relative;
